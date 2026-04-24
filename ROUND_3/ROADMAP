@@ -1,0 +1,8 @@
+ROADMAP for this round:
+
+Step 1: Inventory the datasets — schema, products, timestamps, columns
+Step 2: Solve the manual trade mathematically (it's independent of algo data)
+Step 3: EDA on HYDROGEL_PACK and VELVETFRUIT_EXTRACT (price action, spreads, bot behavior)
+Step 4: EDA on vouchers — implied vol surface, put-call parity checks, mispricing vs. theoretical
+Step 5: Design strategies per product class
+Step 6: Code, test, iterate
