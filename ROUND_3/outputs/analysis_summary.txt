@@ -1,0 +1,141 @@
+======================================================================
+IMC PROSPERITY 4 – ROUND 3 ANALYSIS SUMMARY
+======================================================================
+
+FILES ANALYSED:
+  prices_round_3_day_0.csv                 rows=120,000  ts=[0, 999900]  missing=753,464  cols=['day', 'timestamp', 'product', 'bid_price_1', 'bid_volume_1', 'bid_price_2', 'bid_volume_2', 'bid_price_3', 'bid_volume_3', 'ask_price_1', 'ask_volume_1', 'ask_price_2', 'ask_volume_2', 'ask_price_3', 'ask_volume_3', 'mid_price', 'profit_and_loss']
+  prices_round_3_day_1.csv                 rows=120,000  ts=[0, 999900]  missing=754,796  cols=['day', 'timestamp', 'product', 'bid_price_1', 'bid_volume_1', 'bid_price_2', 'bid_volume_2', 'bid_price_3', 'bid_volume_3', 'ask_price_1', 'ask_volume_1', 'ask_price_2', 'ask_volume_2', 'ask_price_3', 'ask_volume_3', 'mid_price', 'profit_and_loss']
+  prices_round_3_day_2.csv                 rows=120,000  ts=[0, 999900]  missing=755,328  cols=['day', 'timestamp', 'product', 'bid_price_1', 'bid_volume_1', 'bid_price_2', 'bid_volume_2', 'bid_price_3', 'bid_volume_3', 'ask_price_1', 'ask_volume_1', 'ask_price_2', 'ask_volume_2', 'ask_price_3', 'ask_volume_3', 'mid_price', 'profit_and_loss']
+  trades_round_3_day_0.csv                 rows=  1,308  ts=[2500, 999900]  missing=2,616  cols=['timestamp', 'buyer', 'seller', 'symbol', 'currency', 'price', 'quantity']
+  trades_round_3_day_1.csv                 rows=  1,407  ts=[4500, 998500]  missing=2,814  cols=['timestamp', 'buyer', 'seller', 'symbol', 'currency', 'price', 'quantity']
+  trades_round_3_day_2.csv                 rows=  1,333  ts=[900, 998800]  missing=2,666  cols=['timestamp', 'buyer', 'seller', 'symbol', 'currency', 'price', 'quantity']
+
+PRODUCTS IDENTIFIED:
+  Delta-1 : ['HYDROGEL_PACK', 'VELVETFRUIT_EXTRACT']
+  Options : ['VEV_4000', 'VEV_4500', 'VEV_5000', 'VEV_5100', 'VEV_5200', 'VEV_5300', 'VEV_5400', 'VEV_5500', 'VEV_6000', 'VEV_6500']
+
+RETURN STATISTICS (log-returns):
+            product  n_obs    mean_mid   std_mid  min_mid  max_mid      mean_ret  std_ret  skew_ret  kurt_ret
+      HYDROGEL_PACK  30000 9990.806867 31.935214   9891.0  10079.0  3.331779e-08 0.000217 -0.007653  0.622907
+VELVETFRUIT_EXTRACT  30000 5250.098100 15.630415   5198.0   5300.0  2.876538e-07 0.000215 -0.033211  0.351551
+           VEV_4000  30000 1250.109800 15.647243   1198.0   1300.0  1.178944e-06 0.001134 -0.037041  6.860851
+           VEV_4500  30000  750.109567 15.639930    698.5    799.5  1.963320e-06 0.001671 -0.042569  3.819229
+           VEV_5000  30000  255.022400 14.375586    206.5    300.5  4.765863e-06 0.003861 -0.026937  0.244979
+           VEV_5100  30000  166.805450 12.742624    125.0    205.5  5.373716e-06 0.005154 -0.013014  0.177286
+           VEV_5200  30000   95.548767  9.664218     64.0    122.5  5.302333e-06 0.007225  0.002736  0.082392
+           VEV_5300  30000   46.759933  6.228141     26.5     65.5  3.005137e-06 0.010859 -0.007580  0.850940
+           VEV_5400  30000   15.951917  3.429182      6.5     27.0 -4.658887e-06 0.017725 -0.017312  2.234421
+           VEV_5500  30000    6.641350  1.738849      2.5     12.5 -6.472083e-06 0.028555 -0.006703 10.936666
+           VEV_6000  30000    0.500000  0.000000      0.5      0.5  0.000000e+00 0.000000       NaN       NaN
+           VEV_6500  30000    0.500000  0.000000      0.5      0.5  0.000000e+00 0.000000       NaN       NaN
+
+CORRELATION MATRIX:
+                     HYDROGEL_PACK  VELVETFRUIT_EXTRACT  VEV_4000  VEV_4500  VEV_5000  VEV_5100  VEV_5200  VEV_5300  VEV_5400  VEV_5500  VEV_6000  VEV_6500
+HYDROGEL_PACK             1.000000             0.005884  0.001680  0.001837  0.005354  0.000753  0.006235  0.004641  0.005218  0.000619       NaN       NaN
+VELVETFRUIT_EXTRACT       0.005884             1.000000  0.594706  0.597673  0.752449  0.762688  0.719224  0.612285  0.524952  0.333218       NaN       NaN
+VEV_4000                  0.001680             0.594706  1.000000  0.912934  0.817588  0.782498  0.715694  0.578843  0.464731  0.283032       NaN       NaN
+VEV_4500                  0.001837             0.597673  0.912934  1.000000  0.863607  0.836681  0.770046  0.633510  0.513365  0.316080       NaN       NaN
+VEV_5000                  0.005354             0.752449  0.817588  0.863607  1.000000  0.898226  0.835914  0.704138  0.589345  0.368090       NaN       NaN
+VEV_5100                  0.000753             0.762688  0.782498  0.836681  0.898226  1.000000  0.833799  0.701406  0.589477  0.366327       NaN       NaN
+VEV_5200                  0.006235             0.719224  0.715694  0.770046  0.835914  0.833799  1.000000  0.658032  0.556787  0.354080       NaN       NaN
+VEV_5300                  0.004641             0.612285  0.578843  0.633510  0.704138  0.701406  0.658032  1.000000  0.465992  0.301743       NaN       NaN
+VEV_5400                  0.005218             0.524952  0.464731  0.513365  0.589345  0.589477  0.556787  0.465992  1.000000  0.270565       NaN       NaN
+VEV_5500                  0.000619             0.333218  0.283032  0.316080  0.368090  0.366327  0.354080  0.301743  0.270565  1.000000       NaN       NaN
+VEV_6000                       NaN                  NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+VEV_6500                       NaN                  NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+
+KEY FINDINGS & ANOMALIES:
+  HYDROGEL_PACK: skew=-0.008  kurt=0.623
+  VELVETFRUIT_EXTRACT: skew=-0.033  kurt=0.352
+  VEV_4000: skew=-0.037  kurt=6.861
+    ⚠ Fat tails (|excess kurtosis|=6.9) – non-normal returns
+  VEV_4500: skew=-0.043  kurt=3.819
+  VEV_5000: skew=-0.027  kurt=0.245
+  VEV_5100: skew=-0.013  kurt=0.177
+  VEV_5200: skew=0.003  kurt=0.082
+  VEV_5300: skew=-0.008  kurt=0.851
+  VEV_5400: skew=-0.017  kurt=2.234
+  VEV_5500: skew=-0.007  kurt=10.937
+    ⚠ Fat tails (|excess kurtosis|=10.9) – non-normal returns
+  VEV_6000: skew=nan  kurt=nan
+  VEV_6500: skew=nan  kurt=nan
+  VEV_4000: avg_price=1250.110  intrinsic≈1250.10  time_value≈0.012
+  VEV_4500: avg_price=750.110  intrinsic≈750.10  time_value≈0.011
+  VEV_5000: avg_price=255.022  intrinsic≈250.10  time_value≈4.924
+  VEV_5100: avg_price=166.805  intrinsic≈150.10  time_value≈16.707
+  VEV_5200: avg_price=95.549  intrinsic≈50.10  time_value≈45.451
+  VEV_5300: avg_price=46.760  intrinsic≈0.00  time_value≈46.760
+    ★ High time value relative to option price – vol premium
+  VEV_5400: avg_price=15.952  intrinsic≈0.00  time_value≈15.952
+    ★ High time value relative to option price – vol premium
+  VEV_5500: avg_price=6.641  intrinsic≈0.00  time_value≈6.641
+    ★ High time value relative to option price – vol premium
+  VEV_6000: avg_price=0.500  intrinsic≈0.00  time_value≈0.500
+  VEV_6500: avg_price=0.500  intrinsic≈0.00  time_value≈0.500
+  ⚠ Near-zero return correlation: VELVETFRUIT_EXTRACT ↔ HYDROGEL_PACK = 0.006
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_4000 = 0.595
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_4500 = 0.598
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_5000 = 0.752
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_5100 = 0.763
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_5200 = 0.719
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_5300 = 0.612
+  ★ Strong return correlation: VELVETFRUIT_EXTRACT ↔ VEV_5400 = 0.525
+
+PLOTS SAVED:
+  3_price_HYDROGEL_PACK.png
+  3_price_VELVETFRUIT_EXTRACT.png
+  3_price_VEV_4000.png
+  3_price_VEV_4500.png
+  3_price_VEV_5000.png
+  3_price_VEV_5100.png
+  3_price_VEV_5200.png
+  3_price_VEV_5300.png
+  3_price_VEV_5400.png
+  3_price_VEV_5500.png
+  3_price_VEV_6000.png
+  3_price_VEV_6500.png
+  4_spread_HYDROGEL_PACK.png
+  4_spread_VELVETFRUIT_EXTRACT.png
+  4_spread_VEV_4000.png
+  4_spread_VEV_4500.png
+  4_spread_VEV_5000.png
+  4_spread_VEV_5100.png
+  4_spread_VEV_5200.png
+  4_spread_VEV_5300.png
+  4_spread_VEV_5400.png
+  4_spread_VEV_5500.png
+  4_spread_VEV_6000.png
+  4_spread_VEV_6500.png
+  5a_correlation_matrix.png
+  5b_xcorr_VEF_VEV_4000.png
+  5b_xcorr_VEF_VEV_4500.png
+  5b_xcorr_VEF_VEV_5000.png
+  5b_xcorr_VEF_VEV_5100.png
+  5b_xcorr_VEF_VEV_5200.png
+  5b_xcorr_VEF_VEV_5300.png
+  5b_xcorr_VEF_VEV_5400.png
+  5b_xcorr_VEF_VEV_5500.png
+  5b_xcorr_VEF_VEV_6000.png
+  5b_xcorr_VEF_VEV_6500.png
+  5c_scatter_VEF_VEV_4000.png
+  5c_scatter_VEF_VEV_4500.png
+  5c_scatter_VEF_VEV_5000.png
+  5c_scatter_VEF_VEV_5100.png
+  5c_scatter_VEF_VEV_5200.png
+  5c_scatter_VEF_VEV_5300.png
+  5c_scatter_VEF_VEV_5400.png
+  5c_scatter_VEF_VEV_5500.png
+  5c_scatter_VEF_VEV_6000.png
+  5c_scatter_VEF_VEV_6500.png
+  6_options_VEV_4000.png
+  6_options_VEV_4500.png
+  6_options_VEV_5000.png
+  6_options_VEV_5100.png
+  6_options_VEV_5200.png
+  6_options_VEV_5300.png
+  6_options_VEV_5400.png
+  6_options_VEV_5500.png
+  6_options_VEV_6000.png
+  6_options_VEV_6500.png
+
+END OF REPORT
