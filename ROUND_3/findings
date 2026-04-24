@@ -1,0 +1,19 @@
+3. Key findings
+HYDROGEL_PACK — completely uncorrelated with everything (r ≈ 0.006 vs VEF). Separate, unrelated market. Spread ≈ 15.7 (0.16%).
+
+VELVETFRUIT_EXTRACT — mean ~5,250, very tight spread (≈5 ticks, 0.09%), near-zero drift, well-behaved returns.
+
+Options structure:
+
+VEV_4000 / VEV_4500: Deep ITM — priced almost entirely as intrinsic value (time value ≈ 0.01). These are essentially delta-1 positions.
+VEV_5000 / VEV_5100: Near-ATM — meaningful time value (5–17). Highest return correlation with VEF (0.75–0.76). This is where vol is priced.
+VEV_5200–5500: OTM — pure time value (46, 16, 6.6). Return vol jumps sharply as delta drops (std_ret goes 0.007 → 0.028).
+VEV_6000 / VEV_6500: Stuck at 0.5 all 3 days — zero variance, effectively dead/floor-priced. No tradeable signal.
+Spread anomaly: OTM spreads explode — VEV_5500 at 18.6%, VEV_6000/6500 at 200% (bid=0, ask=1). Wide spreads on OTM options are the friction you need to beat for any vol strategy.
+
+Correlations: Strong VEF ↔ ATM correlation (0.76 for VEV_5100) decaying monotonically toward OTM (0.33 for VEV_5500). Consistent with delta sensitivity.
+
+Fat tails: VEV_4000 (excess kurtosis 6.9) and VEV_5500 (10.9) — deep ITM and far OTM options have leptokurtic return distributions, consistent with discrete price jumps in low-delta/high-leverage instruments.
+
+Bot behavior (§7): buyer/seller columns are all null in the trade files — no counterparty data to analyze.
+
