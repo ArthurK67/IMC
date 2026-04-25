@@ -6,3 +6,33 @@ Step 3: EDA on HYDROGEL_PACK and VELVETFRUIT_EXTRACT (price action, spreads, bot
 Step 4: EDA on vouchers — implied vol surface, put-call parity checks, mispricing vs. theoretical
 Step 5: Design strategies per product class
 Step 6: Code, test, iterate
+
+
+
+Oui, **en théorie** le plus simple serait de faire un pricer type Black-Scholes, de calculer la fair value, puis de faire du market making autour de cette valeur avec hedging dynamique du delta. C’est exactement l’idée centrale du modèle : estimer un prix théorique, puis exploiter les écarts entre ce prix et le marché. [fr.wikipedia](https://fr.wikipedia.org/wiki/Mod%C3%A8le_Black-Scholes)
+
+## Ce qui est vrai en théorie
+
+Si VEV est un voucher avec strike et expiration, il se rapproche fortement d’une option vanille, donc Black-Scholes est une bonne **première approximation**. Dans ce cadre, le market making optimal consiste à coter autour de la fair value et à rééquilibrer l’exposition avec le sous-jacent pour limiter le risque directionnel. [fr.scribd](https://fr.scribd.com/document/6052226/le-modele-en-temps-continu-black-scholes-extensions)
+
+## Ce qui limite cette idée en pratique
+
+Black-Scholes suppose notamment une volatilité constante et un marché lisse, sans frictions majeures, alors que les carnets réels ont du bruit, du spread, et des variations de liquidité. Donc un algo purement Black-Scholes + quotes symétriques n’est pas suffisant pour maximiser le PnL ; il faut y ajouter un **estimateur de volatilité implicite**, des ajustements microstructurels et un skew lié à l’inventaire. [interactivebrokers](https://www.interactivebrokers.com/campus/ibkr-quant-news/black-scholes-option-pricing-formula-the-backbone-of-modern-option-pricing/)
+
+## La version la plus performante
+
+La meilleure version n’est pas “Black-Scholes brut”, mais plutôt :
+
+- prix théorique Black-Scholes,
+- volatilité implicite recalibrée en continu,
+- market making autour de cette fair value,
+- skew selon delta et inventaire,
+- mode agressif si le marché diverge fortement de la valeur théorique. [polytechnique-insights](https://www.polytechnique-insights.com/tribunes/economie/black-scholes-la-formule-qui-a-donne-naissance-a-wall-street/)
+
+Autrement dit, Black-Scholes te donne le **noyau de pricing**, mais le PnL vient du moteur d’exécution et de hedging autour de ce noyau. [polytechnique-insights](https://www.polytechnique-insights.com/tribunes/economie/black-scholes-la-formule-qui-a-donne-naissance-a-wall-street/)
+
+## Conclusion pratique
+
+Donc oui, si aucune limite n’existait, la meilleure architecture serait bien un **pricer type Black-Scholes + market making + hedging dynamique**. Mais dans la vraie vie de trading, le gain maximal vient de l’ajout d’un calibrage temps réel et d’une gestion très fine du risque, pas du modèle seul. [incomeshares](https://incomeshares.com/fr/insights/black-scholes-model-guide-to-options-pricing)
+
+Je peux te donner juste après un **pseudo-code d’algo complet VEV** avec calcul de fair value, delta, vol implicite et règles de cotation.
